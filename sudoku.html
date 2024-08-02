@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+        body {
+            font-family: "Patrick Hand", cursive;
+            font-weight: 400;
+            font-size: 30px;
+        }
+
+        table {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto;
+            border-collapse: collapse;
+            width: 630px;
+            border: 4px solid black;
+        }
+
+        td {
+            width: 70px;
+            height: 70px;
+            text-align: center;
+            background-color: lightblue;
+            border: 1px solid black;
+            font-size: 45px;
+            white-space: pre-wrap;
+        }
+
+        .h3,
+        .h6 {
+            border-right: 4px solid black;
+        }
+
+        .tr3,
+        .tr6 {
+            border-bottom: 4px solid black;
+        }
+
+        .pen {
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
+
+        }
+
+        button {
+            align-self: center;
+            background-color: #fff;
+            background-image: none;
+            background-position: 0 90%;
+            background-repeat: repeat no-repeat;
+            background-size: 4px 3px;
+            border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+            border-style: solid;
+            border-width: 2px;
+            box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+            box-sizing: border-box;
+            color: #41403e;
+            cursor: pointer;
+            display: inline-block;
+            line-height: 23px;
+            outline: none;
+            padding: .75rem;
+            text-decoration: none;
+            transition: all 235ms ease-in-out;
+            border-bottom-left-radius: 15px 255px;
+            border-bottom-right-radius: 225px 15px;
+            border-top-left-radius: 255px 15px;
+            border-top-right-radius: 15px 225px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            margin: 50px auto;
+            display: flex;
+            justify-content: center;
+            font-size: 30px;
+            font-family: "Patrick Hand", cursive;
+            font-weight: 400;
+            font-size: 30px;
+        }
+
+        button:hover {
+            box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+            transform: translate3d(0, 2px, 0);
+        }
+
+        button:focus {
+            box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sudoku</h1>
+    </header>
+    <div class="container">
+        <table>
+            <tr>
+                <td class="h1 t1 tr1"></td>
+                <td class="h2 t1 tr1"></td>
+                <td class="h3 t1 tr1"></td>
+                <td class="h4 t2 tr1"></td>
+                <td class="h5 t2 tr1"></td>
+                <td class="h6 t2 tr1"></td>
+                <td class="h7 t3 tr1"></td>
+                <td class="h8 t3 tr1"></td>
+                <td class="h9 t3 tr1"></td>
+            </tr>
+            <tr>
+                <td class="h1 t1 tr2"></td>
+                <td class="h2 t1 tr2"></td>
+                <td class="h3 t1 tr2"></td>
+                <td class="h4 t2 tr2"></td>
+                <td class="h5 t2 tr2"></td>
+                <td class="h6 t2 tr2"></td>
+                <td class="h7 t3 tr2"></td>
+                <td class="h8 t3 tr2"></td>
+                <td class="h9 t3 tr2"></td>
+            </tr>
+            <tr class="buttom">
+                <td class="h1 t1 tr3"></td>
+                <td class="h2 t1 tr3"></td>
+                <td class="h3 t1 tr3"></td>
+                <td class="h4 t2 tr3"></td>
+                <td class="h5 t2 tr3"></td>
+                <td class="h6 t2 tr3"></td>
+                <td class="h7 t3 tr3"></td>
+                <td class="h8 t3 tr3"></td>
+                <td class="h9 t3 tr3"></td>
+            </tr>
+            <tr>
+                <td class="h1 t4 tr4"></td>
+                <td class="h2 t4 tr4"></td>
+                <td class="h3 t4 tr4"></td>
+                <td class="h4 t5 tr4"></td>
+                <td class="h5 t5 tr4"></td>
+                <td class="h6 t5 tr4"></td>
+                <td class="h7 t6 tr4"></td>
+                <td class="h8 t6 tr4"></td>
+                <td class="h9 t6 tr4"></td>
+            </tr>
+            <tr>
+                <td class="h1 t4 tr5"></td>
+                <td class="h2 t4 tr5"></td>
+                <td class="h3 t4 tr5"></td>
+                <td class="h4 t5 tr5"></td>
+                <td class="h5 t5 tr5"></td>
+                <td class="h6 t5 tr5"></td>
+                <td class="h7 t6 tr5"></td>
+                <td class="h8 t6 tr5"></td>
+                <td class="h9 t6 tr5"></td>
+            </tr>
+            <tr class="buttom">
+                <td class="h1 t4 tr6"></td>
+                <td class="h2 t4 tr6"></td>
+                <td class="h3 t4 tr6"></td>
+                <td class="h4 t5 tr6"></td>
+                <td class="h5 t5 tr6"></td>
+                <td class="h6 t5 tr6"></td>
+                <td class="h7 t6 tr6"></td>
+                <td class="h8 t6 tr6"></td>
+                <td class="h9 t6 tr6"></td>
+            </tr>
+            <tr>
+                <td class="h1 t7 tr7"></td>
+                <td class="h2 t7 tr7"></td>
+                <td class="h3 t7 tr7"></td>
+                <td class="h4 t8 tr7"></td>
+                <td class="h5 t8 tr7"></td>
+                <td class="h6 t8 tr7"></td>
+                <td class="h7 t9 tr7"></td>
+                <td class="h8 t9 tr7"></td>
+                <td class="h9 t9 tr7"></td>
+            </tr>
+            <tr>
+                <td class="h1 t7 tr8"></td>
+                <td class="h2 t7 tr8"></td>
+                <td class="h3 t7 tr8"></td>
+                <td class="h4 t8 tr8"></td>
+                <td class="h5 t8 tr8"></td>
+                <td class="h6 t8 tr8"></td>
+                <td class="h7 t9 tr8"></td>
+                <td class="h8 t9 tr8"></td>
+                <td class="h9 t9 tr8"></td>
+            </tr>
+            <tr>
+                <td class="h1 t7 tr9"></td>
+                <td class="h2 t7 tr9"></td>
+                <td class="h3 t7 tr9"></td>
+                <td class="h4 t8 tr9"></td>
+                <td class="h5 t8 tr9"></td>
+                <td class="h6 t8 tr9"></td>
+                <td class="h7 t9 tr9"></td>
+                <td class="h8 t9 tr9"></td>
+                <td class="h9 t9 tr9"></td>
+            </tr>
+        </table>
+        <div class="pen">
+            <input type="radio" name="pen" id="pen" checked>
+            <label for="pen">Pen</label>
+            <input type="radio" name="pen" id="pencil">
+            <label for="pencil">Pencil</label>
+        </div>
+
+
+        <button>confirm</button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        //js code
+
+        window.onload = () => {
+
+            let tds = document.querySelectorAll("td");
+            let ispen = true;
+            let isSelect = false;
+            let selectedTd;
+            let tdText;
+            let level = 17;
+            let avaliableNum;
+
+            //設置亂數
+            function randomnum() {
+                let randomtd = tds[Math.floor(Math.random() * tds.length)];
+                let randnum = Math.floor(Math.random() * 9) + 1;
+                randomtd.innerHTML = randnum;
+            }
+
+            for (let i = 0; i < level; i++) {
+                randomnum();
+            }
+            //檢查重覆數，以及每一格可放數字
+            function showavaliableNumAndrelativetds(td) {
+                avaliableNum = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+                let relativetds = [];
+                //td的所有class
+                let classNames = Array.from(td.classList);
+                classNames.forEach((classname) => {
+                    if (classname != "unchangeable") {
+                        //和td有關聯的tds
+                        let relativetdsArray = $("." + classname).not(td).toArray();
+                        relativetds = relativetds.concat(relativetdsArray);
+                        //刪除已經有的數字
+                        document.querySelectorAll("." + classname).forEach((item) => {
+                            if (item.textContent != "") {
+                                let removeindex = avaliableNum.indexOf(item.textContent);
+                                if ((removeindex) != -1) {
+                                    avaliableNum.splice(removeindex, 1);
+                                }
+                            }
+                        });
+                    }
+                })
+                return {
+                    relativetds: relativetds,
+                    avaliableNum: avaliableNum
+                };
+            }
+
+            function resetSameNum(td) {
+                //出現可用數字及關連td
+                let result = showavaliableNumAndrelativetds(td);
+                //替換重覆數字
+                result.relativetds.forEach((item) => {
+                    if (item.textContent != "" && item.textContent == td.textContent) {
+                        let randindex = Math.floor(Math.random() * result.avaliableNum.length);
+                        td.textContent = result.avaliableNum[randindex];
+                        result.avaliableNum.splice(randindex, 1);
+                    }
+                })
+                // console.log(td);
+                // console.log(result.relativetds);
+                // console.log(result.avaliableNum);
+            }
+
+            tds.forEach((td) => {
+                if (td.textContent != "") {
+                    resetSameNum(td);
+                    $(td).addClass("unchangeable");
+                }
+            })
+            //檢查唯一解答
+
+            //玩家操作
+            let pencil = document.getElementById("pencil");
+            //let pen = document.getElementById("pen");
+            function updateispen() {
+                ispen = pencil.checked ? false : true;
+            }
+            pencil.addEventListener("change", updateispen);
+            pen.addEventListener("change", updateispen);
+
+            function changeBackgroundColor(x) {
+                x.style.backgroundColor = "aquamarine";
+            }
+            tds.forEach((item) => {
+                //click change color
+                let result = showavaliableNumAndrelativetds(item);
+                item.addEventListener("click", () => {
+                    tds.forEach((td) => {
+                        td.style.backgroundColor = "";
+                    })
+                    changeBackgroundColor(item);
+                    result.relativetds.forEach((td) => {
+                        changeBackgroundColor(td);
+                    })
+                    selectedTd = item;
+                    isSelect = true;
+                    avaliableNum = result.avaliableNum;
+                    //console.log(avaliableNum);
+                })
+            })
+            document.addEventListener("keydown", (event) => {
+                //鍵盤數字的keyCode97-105 49-57
+                if (isSelect && !selectedTd.classList.contains("unchangeable")) {
+                    //決定顏色跟填入數字
+                    function decideColor(x) {
+                        let issame = true;
+                        avaliableNum.forEach((num) => {
+                            if (x == num) {
+                                issame = false;
+                                return;
+                            }
+                        })
+                        selectedTd.style.color = issame ? "red" : "blue";
+                        selectedTd.innerHTML = x;
+                    }
+                    console.log(avaliableNum);
+                    if (ispen) {
+                        switch (event.keyCode) {
+                            case 97:
+                                decideColor("1");
+                                break;
+                            case 98:
+                                decideColor("2");
+                                break;
+                            case 99:
+                                decideColor("3");
+                                break;
+                            case 100:
+                                decideColor("4");
+                                break;
+                            case 101:
+                                decideColor("5");
+                                break;
+                            case 102:
+                                decideColor("6");
+                                break;
+                            case 103:
+                                decideColor("7");
+                                break;
+                            case 104:
+                                decideColor("8");
+                                break;
+                            case 105:
+                                decideColor("9");
+                                break;
+                            //check是否為重覆數字
+                        }
+                    }
+                    else {
+                        selectedTd.style.fontSize = "15px";
+                        tdText = selectedTd.textContent;
+                        if (tdText.length === 4) {
+                            selectedTd.innerHTML += "\n";
+                        }
+                        switch (event.keyCode) {
+                            case 97:
+                                shownumber("1");
+                                break;
+                            case 98:
+                                shownumber("2");
+                                break;
+                            case 99:
+                                shownumber("3");
+                                break;
+                            case 100:
+                                shownumber("4");
+                                break;
+                            case 101:
+                                shownumber("5");
+                                break;
+                            case 102:
+                                shownumber("6");
+                                break;
+                            case 103:
+                                shownumber("7");
+                                break;
+                            case 104:
+                                shownumber("8");
+                                break;
+                            case 105:
+                                shownumber("9");
+                                break;
+                        }
+                    }
+
+                }
+
+            })
+
+            function shownumber(x) {
+                let index = tdText.indexOf(x);
+                if (index === -1) {
+                    selectedTd.innerHTML += x;
+                }
+                else {
+                    let newText = tdText.substring(0, index) + tdText.substring(index + 1, tdText.length);
+                    selectedTd.innerHTML = newText;
+                }
+
+            }
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
