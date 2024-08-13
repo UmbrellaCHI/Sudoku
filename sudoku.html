@@ -57,8 +57,7 @@
         }
 
         .numberWapper {
-            display: flex;
-            justify-content: center;
+            display: none;
         }
 
         .numbers {
@@ -128,6 +127,11 @@
             td {
                 width: 30px;
                 height: 30px;
+            }
+
+            .numberWapper {
+                display: flex;
+                justify-content: center;
             }
         }
     </style>
@@ -272,12 +276,37 @@
 
             let tds = document.querySelectorAll("td");
             let numberButtons = document.querySelectorAll(".numbers button");
+            let table = document.querySelector("table");
             let ispen = true;
             let isSelect = false;
             let selectedTd;
             let tdText;
             let level = 17;
             let avaliableNum;
+            let screenWidth = window.innerWidth;
+            window.addEventListener('resize', function () {
+                screenWidth = window.innerWidth;
+                tds.forEach((td) => {
+                    let size = window.getComputedStyle(td).fontSize;
+                    console.log(size);
+                    if (screenWidth <= 600) {
+                        if (size == '45px' || size == '25px') {
+                            td.style.fontSize = "25px";
+                        }
+                        else {
+                            td.style.fontSize = "9px";
+                        }
+                    } else {
+                        if (size == '45px' || size == '25px') {
+                            td.style.fontSize = "45px";
+                        }
+                        else {
+                            td.style.fontSize = "15px";
+                        }
+                    }
+                })
+            });
+
 
             //設置亂數
             function randomnum() {
@@ -373,6 +402,11 @@
                 if (isSelect && !selectedTd.classList.contains("unchangeable")) {
                     console.log(avaliableNum);
                     if (ispen) {
+                        if (screenWidth <= 600) { // 螢幕寬度小於600px
+                            selectedTd.style.fontSize = '25px';
+                        } else { // 螢幕寬度600px或更大
+                            selectedTd.style.fontSize = '45px';
+                        }
                         switch (event.keyCode) {
                             case 97:
                                 decideColor("1");
@@ -405,7 +439,11 @@
                         }
                     }
                     else {
-                        selectedTd.style.fontSize = "15px";
+                        if (screenWidth <= 600) { // 螢幕寬度小於600px
+                            selectedTd.style.fontSize = '9px';
+                        } else { // 螢幕寬度600px或更大
+                            selectedTd.style.fontSize = '15px';
+                        }
                         tdText = selectedTd.textContent;
                         if (tdText.length === 4) {
                             selectedTd.innerHTML += "\n";
@@ -451,7 +489,8 @@
                     if (isSelect && !selectedTd.classList.contains("unchangeable")) {
                         let myNum = this.textContent;
                         if (ispen) {
-                            decideColor(myNum)
+                            selectedTd.style.fontSize = "25px";
+                            decideColor(myNum);
                         }
                         else {
                             selectedTd.style.fontSize = "9px";
