@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudoku</title>
-    <link rel="stylesheet" href="../style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
@@ -57,6 +56,19 @@
 
         }
 
+        .numberWapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .numbers {
+            width: 500px;
+            height: 60px;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 0px;
+        }
+
         button {
             align-self: center;
             background-color: #fff;
@@ -101,6 +113,23 @@
         button:focus {
             box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
         }
+
+        @media (max-width: 600px) {
+            table {
+                width: 360px;
+            }
+
+            th,
+            td {
+                padding: 4px;
+                font-size: 25px;
+            }
+
+            td {
+                width: 30px;
+                height: 30px;
+            }
+        }
     </style>
 </head>
 
@@ -109,108 +138,123 @@
         <h1>Sudoku</h1>
     </header>
     <div class="container">
-        <table>
-            <tr>
-                <td class="h1 t1 tr1"></td>
-                <td class="h2 t1 tr1"></td>
-                <td class="h3 t1 tr1"></td>
-                <td class="h4 t2 tr1"></td>
-                <td class="h5 t2 tr1"></td>
-                <td class="h6 t2 tr1"></td>
-                <td class="h7 t3 tr1"></td>
-                <td class="h8 t3 tr1"></td>
-                <td class="h9 t3 tr1"></td>
-            </tr>
-            <tr>
-                <td class="h1 t1 tr2"></td>
-                <td class="h2 t1 tr2"></td>
-                <td class="h3 t1 tr2"></td>
-                <td class="h4 t2 tr2"></td>
-                <td class="h5 t2 tr2"></td>
-                <td class="h6 t2 tr2"></td>
-                <td class="h7 t3 tr2"></td>
-                <td class="h8 t3 tr2"></td>
-                <td class="h9 t3 tr2"></td>
-            </tr>
-            <tr class="buttom">
-                <td class="h1 t1 tr3"></td>
-                <td class="h2 t1 tr3"></td>
-                <td class="h3 t1 tr3"></td>
-                <td class="h4 t2 tr3"></td>
-                <td class="h5 t2 tr3"></td>
-                <td class="h6 t2 tr3"></td>
-                <td class="h7 t3 tr3"></td>
-                <td class="h8 t3 tr3"></td>
-                <td class="h9 t3 tr3"></td>
-            </tr>
-            <tr>
-                <td class="h1 t4 tr4"></td>
-                <td class="h2 t4 tr4"></td>
-                <td class="h3 t4 tr4"></td>
-                <td class="h4 t5 tr4"></td>
-                <td class="h5 t5 tr4"></td>
-                <td class="h6 t5 tr4"></td>
-                <td class="h7 t6 tr4"></td>
-                <td class="h8 t6 tr4"></td>
-                <td class="h9 t6 tr4"></td>
-            </tr>
-            <tr>
-                <td class="h1 t4 tr5"></td>
-                <td class="h2 t4 tr5"></td>
-                <td class="h3 t4 tr5"></td>
-                <td class="h4 t5 tr5"></td>
-                <td class="h5 t5 tr5"></td>
-                <td class="h6 t5 tr5"></td>
-                <td class="h7 t6 tr5"></td>
-                <td class="h8 t6 tr5"></td>
-                <td class="h9 t6 tr5"></td>
-            </tr>
-            <tr class="buttom">
-                <td class="h1 t4 tr6"></td>
-                <td class="h2 t4 tr6"></td>
-                <td class="h3 t4 tr6"></td>
-                <td class="h4 t5 tr6"></td>
-                <td class="h5 t5 tr6"></td>
-                <td class="h6 t5 tr6"></td>
-                <td class="h7 t6 tr6"></td>
-                <td class="h8 t6 tr6"></td>
-                <td class="h9 t6 tr6"></td>
-            </tr>
-            <tr>
-                <td class="h1 t7 tr7"></td>
-                <td class="h2 t7 tr7"></td>
-                <td class="h3 t7 tr7"></td>
-                <td class="h4 t8 tr7"></td>
-                <td class="h5 t8 tr7"></td>
-                <td class="h6 t8 tr7"></td>
-                <td class="h7 t9 tr7"></td>
-                <td class="h8 t9 tr7"></td>
-                <td class="h9 t9 tr7"></td>
-            </tr>
-            <tr>
-                <td class="h1 t7 tr8"></td>
-                <td class="h2 t7 tr8"></td>
-                <td class="h3 t7 tr8"></td>
-                <td class="h4 t8 tr8"></td>
-                <td class="h5 t8 tr8"></td>
-                <td class="h6 t8 tr8"></td>
-                <td class="h7 t9 tr8"></td>
-                <td class="h8 t9 tr8"></td>
-                <td class="h9 t9 tr8"></td>
-            </tr>
-            <tr>
-                <td class="h1 t7 tr9"></td>
-                <td class="h2 t7 tr9"></td>
-                <td class="h3 t7 tr9"></td>
-                <td class="h4 t8 tr9"></td>
-                <td class="h5 t8 tr9"></td>
-                <td class="h6 t8 tr9"></td>
-                <td class="h7 t9 tr9"></td>
-                <td class="h8 t9 tr9"></td>
-                <td class="h9 t9 tr9"></td>
-            </tr>
-        </table>
-        <div class="pen">
+        <div>
+            <table>
+                <tr>
+                    <td class="h1 t1 tr1"></td>
+                    <td class="h2 t1 tr1"></td>
+                    <td class="h3 t1 tr1"></td>
+                    <td class="h4 t2 tr1"></td>
+                    <td class="h5 t2 tr1"></td>
+                    <td class="h6 t2 tr1"></td>
+                    <td class="h7 t3 tr1"></td>
+                    <td class="h8 t3 tr1"></td>
+                    <td class="h9 t3 tr1"></td>
+                </tr>
+                <tr>
+                    <td class="h1 t1 tr2"></td>
+                    <td class="h2 t1 tr2"></td>
+                    <td class="h3 t1 tr2"></td>
+                    <td class="h4 t2 tr2"></td>
+                    <td class="h5 t2 tr2"></td>
+                    <td class="h6 t2 tr2"></td>
+                    <td class="h7 t3 tr2"></td>
+                    <td class="h8 t3 tr2"></td>
+                    <td class="h9 t3 tr2"></td>
+                </tr>
+                <tr class="buttom">
+                    <td class="h1 t1 tr3"></td>
+                    <td class="h2 t1 tr3"></td>
+                    <td class="h3 t1 tr3"></td>
+                    <td class="h4 t2 tr3"></td>
+                    <td class="h5 t2 tr3"></td>
+                    <td class="h6 t2 tr3"></td>
+                    <td class="h7 t3 tr3"></td>
+                    <td class="h8 t3 tr3"></td>
+                    <td class="h9 t3 tr3"></td>
+                </tr>
+                <tr>
+                    <td class="h1 t4 tr4"></td>
+                    <td class="h2 t4 tr4"></td>
+                    <td class="h3 t4 tr4"></td>
+                    <td class="h4 t5 tr4"></td>
+                    <td class="h5 t5 tr4"></td>
+                    <td class="h6 t5 tr4"></td>
+                    <td class="h7 t6 tr4"></td>
+                    <td class="h8 t6 tr4"></td>
+                    <td class="h9 t6 tr4"></td>
+                </tr>
+                <tr>
+                    <td class="h1 t4 tr5"></td>
+                    <td class="h2 t4 tr5"></td>
+                    <td class="h3 t4 tr5"></td>
+                    <td class="h4 t5 tr5"></td>
+                    <td class="h5 t5 tr5"></td>
+                    <td class="h6 t5 tr5"></td>
+                    <td class="h7 t6 tr5"></td>
+                    <td class="h8 t6 tr5"></td>
+                    <td class="h9 t6 tr5"></td>
+                </tr>
+                <tr class="buttom">
+                    <td class="h1 t4 tr6"></td>
+                    <td class="h2 t4 tr6"></td>
+                    <td class="h3 t4 tr6"></td>
+                    <td class="h4 t5 tr6"></td>
+                    <td class="h5 t5 tr6"></td>
+                    <td class="h6 t5 tr6"></td>
+                    <td class="h7 t6 tr6"></td>
+                    <td class="h8 t6 tr6"></td>
+                    <td class="h9 t6 tr6"></td>
+                </tr>
+                <tr>
+                    <td class="h1 t7 tr7"></td>
+                    <td class="h2 t7 tr7"></td>
+                    <td class="h3 t7 tr7"></td>
+                    <td class="h4 t8 tr7"></td>
+                    <td class="h5 t8 tr7"></td>
+                    <td class="h6 t8 tr7"></td>
+                    <td class="h7 t9 tr7"></td>
+                    <td class="h8 t9 tr7"></td>
+                    <td class="h9 t9 tr7"></td>
+                </tr>
+                <tr>
+                    <td class="h1 t7 tr8"></td>
+                    <td class="h2 t7 tr8"></td>
+                    <td class="h3 t7 tr8"></td>
+                    <td class="h4 t8 tr8"></td>
+                    <td class="h5 t8 tr8"></td>
+                    <td class="h6 t8 tr8"></td>
+                    <td class="h7 t9 tr8"></td>
+                    <td class="h8 t9 tr8"></td>
+                    <td class="h9 t9 tr8"></td>
+                </tr>
+                <tr>
+                    <td class="h1 t7 tr9"></td>
+                    <td class="h2 t7 tr9"></td>
+                    <td class="h3 t7 tr9"></td>
+                    <td class="h4 t8 tr9"></td>
+                    <td class="h5 t8 tr9"></td>
+                    <td class="h6 t8 tr9"></td>
+                    <td class="h7 t9 tr9"></td>
+                    <td class="h8 t9 tr9"></td>
+                    <td class="h9 t9 tr9"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="numberWapper">
+            <div class="numbers">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+            </div>
+        </div>
+        <div class="pen col-12">
             <input type="radio" name="pen" id="pen" checked>
             <label for="pen">Pen</label>
             <input type="radio" name="pen" id="pencil">
@@ -227,6 +271,7 @@
         window.onload = () => {
 
             let tds = document.querySelectorAll("td");
+            let numberButtons = document.querySelectorAll(".numbers button");
             let ispen = true;
             let isSelect = false;
             let selectedTd;
@@ -283,9 +328,6 @@
                         result.avaliableNum.splice(randindex, 1);
                     }
                 })
-                // console.log(td);
-                // console.log(result.relativetds);
-                // console.log(result.avaliableNum);
             }
 
             tds.forEach((td) => {
@@ -323,23 +365,12 @@
                     isSelect = true;
                     avaliableNum = result.avaliableNum;
                     //console.log(avaliableNum);
+
                 })
             })
             document.addEventListener("keydown", (event) => {
                 //鍵盤數字的keyCode97-105 49-57
                 if (isSelect && !selectedTd.classList.contains("unchangeable")) {
-                    //決定顏色跟填入數字
-                    function decideColor(x) {
-                        let issame = true;
-                        avaliableNum.forEach((num) => {
-                            if (x == num) {
-                                issame = false;
-                                return;
-                            }
-                        })
-                        selectedTd.style.color = issame ? "red" : "blue";
-                        selectedTd.innerHTML = x;
-                    }
                     console.log(avaliableNum);
                     if (ispen) {
                         switch (event.keyCode) {
@@ -414,6 +445,40 @@
 
             })
 
+            //Buttons
+            numberButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    if (isSelect && !selectedTd.classList.contains("unchangeable")) {
+                        let myNum = this.textContent;
+                        if (ispen) {
+                            decideColor(myNum)
+                        }
+                        else {
+                            selectedTd.style.fontSize = "9px";
+                            tdText = selectedTd.textContent;
+                            if (tdText.length === 4) {
+                                selectedTd.innerHTML += "\n";
+                            }
+                            shownumber(myNum);
+                        }
+                    }
+
+                });
+            });
+
+            //決定顏色跟填入數字
+            function decideColor(x) {
+                let issame = true;
+                avaliableNum.forEach((num) => {
+                    if (x == num) {
+                        issame = false;
+                        return;
+                    }
+                })
+                selectedTd.style.color = issame ? "red" : "blue";
+                selectedTd.innerHTML = x;
+            }
+
             function shownumber(x) {
                 let index = tdText.indexOf(x);
                 if (index === -1) {
@@ -425,20 +490,7 @@
                 }
 
             }
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
     </script>
 </body>
 
